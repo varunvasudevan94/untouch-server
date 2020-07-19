@@ -15,7 +15,7 @@ app.get('/', function(req, res){
 });
 
 wss.on('connection', function connection(ws) {
-  ws.on('addItem', function incoming(data) {
+  ws.on('message', function incoming(data) {
     console.log(data);
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
